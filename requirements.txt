@@ -1,0 +1,11 @@
+torch
+transformers==4.40.2
+accelerate==0.30.1
+bitsandbytes==0.43.1
+peft==0.10.0
+sentence-transformers==2.7.0
+faiss-cpu==1.7.4
+datasets==2.19.0
+gradio==4.31.0
+numpy==1.26.4
+triton==2.1.0
