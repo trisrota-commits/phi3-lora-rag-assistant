@@ -6,8 +6,6 @@ Overview
 
 What it does: Semantic search + grounded answer generation over curated ML content
 
-Why it matters: Shows evaluation-driven system design, not just "RAG in 10 lines"
-
 Scrapes and chunks technical blog content with token-aware splitting
 
 FAISS similarity search with all-MiniLM-L6-v2 embeddings
@@ -27,23 +25,6 @@ Recall@5: 0.75 | MRR@5: 0.62
 
 Tested on chunk-level labeled queries. 75% of relevant chunks retrieved in top-5; relevant chunks typically rank ~2nd.
 
-Key Engineering Decisions
-
-Cosine similarity via normalized embeddings: L2 normalization → cosine = dot product (FAISS IndexFlatIP)
-
-Context window management: TinyLlama's 2048 token limit → k=2 retrieval + aggressive truncation
-
-Hallucination mitigation: Similarity threshold rejects low-confidence queries outside domain
-
-Roadmap
-
- Cross-encoder reranking (reorder top-k with powerful model)
- 
- Hybrid retrieval (BM25 + dense embeddings)
- 
- Model quantization (INT8 TinyLlama for 2-3x speedup)
- 
- Expanded evaluation set (500+ labeled queries)
 
 
 Content sources: D2L · Karpathy · Ruder · Colah
